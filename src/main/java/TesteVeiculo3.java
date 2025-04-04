@@ -1,11 +1,11 @@
-import encapsulamento.versao2.Veiculo;
+import encapsulamento.versao3.Veiculo;
 
 public class TesteVeiculo3 {
 
     public static void main(String[] args) {
 
         System.out.println("Criando um veículo com carga máxima de 10.000kg");
-        encapsulamento.versao2.Veiculo veiculo = new Veiculo(10000);
+        Veiculo veiculo = new Veiculo(10000);
 
         System.out.println("Adicionando caixa número 1 (500kg) : " + veiculo.adicionarCaixa(500));
 
