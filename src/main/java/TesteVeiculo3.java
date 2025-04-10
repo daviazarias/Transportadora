@@ -5,22 +5,21 @@ public class TesteVeiculo3 {
 
     private static final Scanner sc = new Scanner(System.in);
 
-    private static void adicionarCaixa(Veiculo veiculo, int num){
-        System.out.print("Insira o peso da caixa a adicionar: ");
-        double peso = sc.nextDouble();
-        System.out.println("Adicionando caixa número " + num + " (" + peso + "kg) : "
-                + veiculo.adicionarCaixa(peso));
-    }
-
     public static void main(String[] args) {
+
+        boolean sucesso;
 
         System.out.print("Insira a carga máxima do veículo: ");
         double cargaMaxima = sc.nextDouble();
-        System.out.println("Criando um veículo com carga máxima de " + cargaMaxima + " kg");
         Veiculo veiculo = new Veiculo(cargaMaxima);
+        System.out.println("Criando um veículo com carga máxima de " + cargaMaxima + " kg");
 
-        for(int i = 1; i <= 5; i++)
-            adicionarCaixa(veiculo,i);
+        do {
+            System.out.print("Insira o peso da caixa a adicionar: ");
+            double peso = sc.nextDouble();
+            sucesso = veiculo.adicionarCaixa(peso);
+            System.out.println("Adicionando caixa (" + peso + "kg) : " + sucesso);
+        } while (sucesso);
 
         System.out.println("A carga do veículo é: " + veiculo.getCarga() + " kg");
     }

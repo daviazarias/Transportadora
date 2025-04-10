@@ -17,16 +17,17 @@ public class Veiculo {
     }
 
     public boolean adicionarCaixa(double peso){
-        peso = quilosParaNewtons(peso);
-        if(carga + peso <= cargaMaxima){
-            carga += peso;
-            return true;
-        }
-        return false;
+        double novaCarga = carga + quilosParaNewtons(peso);
+
+        if(novaCarga > cargaMaxima)
+            return false;
+
+        carga = novaCarga;
+        return true;
     }
 
     private double newtonsParaQuilos(double peso){
-        return 9.8 * peso;
+        return peso * 9.8;
     }
 
     private double quilosParaNewtons(double peso){
